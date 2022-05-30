@@ -43,7 +43,6 @@
 // 	int n = sizeof(arr) / sizeof(arr[0]);
 // 	int d = 2;
 
-
 //     int a[n]={0};
 
 //     int i;
@@ -54,7 +53,6 @@
 //         a[i-1]=arr[i];
 //     }
 
-    
 //     //printArray(a,n-1);
 
 //     cout<<endl;
@@ -67,14 +65,6 @@
 
 // 	return 0;
 // }
-
-
-
-
-
-
-
-
 
 // #include<iostream>
 // using namespace std;
@@ -107,9 +97,6 @@
 
 // }
 
-
-
-
 // #include<iostream>
 // using namespace std;
 
@@ -117,7 +104,6 @@
 // {
 //     int a[7] = {1,2,3,4,5,6,7};
 //     int b[7];
-
 
 //     int i,n;
 //     n = sizeof(a)/sizeof(a[0]);
@@ -130,25 +116,17 @@
 //         j++;
 //     }
 
-
 //     for(i=0;i<n;i++)
 //     {
 //         cout<<b[i]<<endl;
 //     }
-
-
 
 //     for(i=n-1;i>=0;i--)
 //     {
 //         cout<<a[i]<<endl;
 //     }
 
-
-
 // }
-
-
-
 
 // Disarium number
 
@@ -183,7 +161,7 @@
 //     }
 
 //     return s;
-    
+
 // }
 
 // int main()
@@ -203,28 +181,13 @@
 //    else{
 //        cout<<"No"<<endl;
 //    }
-   
-
-
 
 // }
-
-
-
-
-
-
-
-
-
-
-
 
 // #include<iostream>
 // using namespace std;
 
 // int bsearch(int a[],int n);
-
 
 // int main()
 // {
@@ -241,8 +204,6 @@
 // 		cin>>a[i];
 // 	}
 
-	
-
 // 	int res = bsearch(a,n);
 
 // 	if(res)
@@ -257,7 +218,6 @@
 // 	return 0;
 
 // }
-
 
 // int bsearch(int a[],int n)
 // {
@@ -293,16 +253,9 @@
 
 // 	return 0 ;
 
-
 // }
 
-
-
-
-
-
 // GET, INSERT and UPDATE for 2D array
-
 
 // #include<iostream>
 // using namespace std;
@@ -345,7 +298,6 @@
 
 // 	cout<<"Updating values of the array"<<endl;
 
-
 // 	update(a,0,0,9);
 // 	update(a,2,2,0);
 
@@ -358,9 +310,7 @@
 
 // 	printarray(a);
 
-
 // }
-
 
 // void get(int a[][3],int ri,int ci)
 // {
@@ -372,7 +322,7 @@
 // {
 // 	a[ri][ci]=val;
 // 	cout<<"inserted"<<endl;
-// } 
+// }
 
 // void update(int a[][3],int ri,int ci,int val)
 // {
@@ -380,7 +330,6 @@
 
 // 	cout<<"Updated"<<endl;
 // }
-
 
 // void printarray(int a[][3])
 // {
@@ -397,24 +346,16 @@
 // 	}
 // }
 
-
-
-
-
 // Move all the zeros with keeping non-zero elements position relative
 
 // #include<iostream>
 // using namespace std;
-
-
 
 // void printArr(int a[],int n);
 
 // void moveZeros(int a[],int n);
 
 // void printArr(int a[],int n);
-
-
 
 // int main()
 // {
@@ -445,8 +386,6 @@
 // {
 // 	int i,c=0;
 
-	
-
 // 	for(i=0;i<n;i++)
 // 	{
 // 		if(a[i]!=0)
@@ -463,54 +402,136 @@
 // 	}
 // }
 
-
-
-
-
-
 // Removing duplicates elements from sorted array and returning the new length
 
-#include<iostream>
+// #include<iostream>
+// using namespace std;
+
+// int removeDup(int a[],int n);
+
+// int main()
+// {
+// 	int n=7;
+// 	int a[7] ={1,2,2,3,5,5,9};
+
+// 	int nl = removeDup(a,n);
+
+// 	cout<<"The new length is "<<nl<<endl;
+// 	return 0;
+// }
+
+// int removeDup(int a[],int n)
+// {
+// 	int i=0;
+// 	int j;
+
+// 	for(j=1;j<n;j++)
+// 	{
+// 		if(a[i]!=a[j])
+// 		{
+// 			i++;
+// 			a[i] = a[j];
+//             //i++;   Do not do this,
+// 		}
+// 	}
+
+// 	return i+1;
+// }
+
+#include <iostream>
 using namespace std;
 
+void rotate(int mat[3][3]);
+void printmatrix(int mat[3][3]);
+void flipd(int a[3][3]);
+void fliph(int a[3][3]);
 
-int removeDup(int a[],int n);
+
 
 int main()
 {
-	int n=7;
-	int a[7] ={1,2,2,3,5,5,9};
+	int n, m = 3;
 
-	int nl = removeDup(a,n);
+	int a[n][m];
 
-	cout<<"The new length is "<<nl<<endl;
+	cout << "Enter the matrix elements" << endl;
+
+	int i, j;
+
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+
+	cout << "Before flipping" << endl;
+
+	printmatrix(a);
+
+	rotate(a);
+
+	cout << "After flipping" << endl;
+	printmatrix(a);
+
 	return 0;
 }
 
 
-int removeDup(int a[],int n)
+
+void printmatrix(int a[3][3])
 {
-	int i=0;
-	int j;
-
-	for(j=1;j<n;j++)
+	for(int i=0;i<3;i++)
 	{
-		if(a[i]!=a[j])
+		for(int j=0;j<3;j++)
 		{
-			i++;
-			a[i] = a[j];
-            //i++;   Do not do this, 
+			cout<<a[i][j];
 		}
-	}
 
-	return i+1;
+		cout<<endl;
+	}
 }
 
 
+void rotate(int mat[3][3])
+{
+flipd( mat);
+fliph(mat);
+}
+
+void flipd(int mat[3][3])
+{
+	int i,j;
+
+	int len = sizeof(mat)/sizeof(mat[0][0]);
+
+	for(i=0;i<len-1;i++)
+	{
+		for(j=0;j<len-i-1;j++)
+		{
+			int curr = mat[i][j];
+			mat[i][j] = mat[len-j-1][len-i-1];
+			mat[len-j-1][len-i-1] = curr;
+		}
+	}
+}
 
 
+void fliph(int mat[3][3])
+{
+	int i,j,curr;
+	int len = sizeof(mat)/sizeof(mat[0][0]);
+
+	for(i=0;i<len/2;i++)
+	{
+		for(j=0;j<len-1;j++)
+		{
+			curr = mat[i][j];
+			mat[i][j] = mat[len-i-1][j];
+			mat[len-i-1][j] = curr;
 
 
-
-
-
+		}
+	}
+}
