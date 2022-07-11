@@ -1,86 +1,75 @@
-#include<bits\stdc++.h>
-using namespace std;
+#include<bits/stdc++.h>
+using  namespace std;
 
-#define ROW 3
-#define COL 3
+class node{
+    public:
+    int data;
+    node* next;
 
 
+    node(int val)
+    {
+        data=val;
+        next=NULL;
+    }
+};
 
-
-// void make(int a[][COL],int i,int j)
-void make(int *a,int i,int j )
+void insertAtEnd(node* &head,int val)
 {
-    int n,m;
-    for(n=0;n<ROW;n++)
+    node * n = new node(val);
+
+    if(head==NULL)
     {
-        a[i][n]=0;
+        head= n;
+        return ;
     }
 
-    for(n=0;n<ROW;n++)
+    node* temp = head;
+
+    while(temp->next!=NULL)
     {
-        a[n][j]=0;
+        temp = temp->next;
     }
+
+    temp->next = n;
+
+
 
 
 }
+
+void insertAtTheHead(node* &head,int val)
+{
+    node* n =new node(val);
+    n->next=head;
+    head = n;
+}
+
+
+void display(node* head)
+{
+    node* temp = head;
+    while(temp!=NULL)
+    {
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+}
+
 
 
 
 int main()
 {
-    int i,j;
-    int n=3;
-    int m=3;
+    node* head=NULL;
 
-    int a[n][m];
+    insertAtEnd(head,1);
+    insertAtEnd(head,2);
+    insertAtEnd(head,3);
+    insertAtEnd(head,4);
 
-    cout<<"Enter the 3 x 3 array elements"<<endl;
-
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<m;j++)
-        {   
-                cin>>a[i][j];
-
-        }
-    }
-
-    cout<<"The array is"<<endl;
-
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<m;j++)
-        {
-            cout<<a[i];
-        }
-        cout<<endl;
-    }
-
-
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<m;j++)
-        {
-            if(a[i][j]==0)
-            {
-                make(a,i,j);
-            }
-        }
-    }
-
-    cout<<"The modified array is"<<endl;
-
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<m;j++)
-        {
-            cout<<a[i];
-        }
-        cout<<endl;
-    }
-
-
-
+    display(head);
+    
 
 
 }

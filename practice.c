@@ -9,25 +9,25 @@ void make(int a[ROW][COL],int n,int m)
 {
     int i,j;
 
-    // for(i=0;i<ROW;i++)
-    // {
-    //     a[n][i]=0;   // changing the row values into zeros 
-    // }
+    for(i=0;i<ROW;i++)
+    {
+        a[n][i]=-1;   // changing the row values into zeros 
+    }
 
 
-    // for(j=0;j<COL;j++)
-    // {
-    //     a[j][m]=0;
-    // }
+    for(j=0;j<COL;j++)
+    {
+        a[j][m]=-1;
+    }
 
 
-    a[0][m]=0;
-    a[1][m]=0;
-    a[2][m]=0;
+    // a[0][m]=0;
+    // a[1][m]=0;
+    // a[2][m]=0;
 
-    a[n][0]=0;
-    a[n][1]=0;
-    a[n][2]=0;
+    // a[n][0]=0;
+    // a[n][1]=0;
+    // a[n][2]=0;
 
 
 
@@ -80,6 +80,19 @@ int main()
         }
     }
 
+    
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            if(a[i][j]==-1)
+            {
+                a[i][j]=0;
+            }
+        }
+    }
+
+
     printf("The changed array is\n");
 
     for(i=0;i<n;i++)
@@ -90,5 +103,6 @@ int main()
         }
         printf("\n");
     }
+
 
 }
